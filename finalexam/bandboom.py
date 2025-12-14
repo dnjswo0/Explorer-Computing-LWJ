@@ -23,14 +23,26 @@ from pathlib import Path
 #     font_name = font_manager.FontProperties(fname=font_path).get_name()
 #     plt.rc('font', family=font_name)
 
-BASE_DIR = Path(__file__).resolve().parent   # ★ 반드시 Path
+# ---- (한글 폰트 설정: Streamlit Cloud에서도 깨지지 않게) ----
+BASE_DIR = Path(__file__).resolve().parent
 FONT_PATH = BASE_DIR / "fonts" / "LG_PC.ttf"
 
-st.write("FONT exists?", FONT_PATH.exists(), FONT_PATH)  # 디버깅용
+st.write("FONT exists?", FONT_PATH.exists(), FONT_PATH)  # 디버깅
 
-font_prop = font_manager.FontProperties(fname=str(FONT_PATH))
-rc("font", family=font_prop.get_name())
-rc("axes", unicode_minus=False)# 마이너스 깨짐 방지
+if FONT_PATH.exists():
+    # 1) 폰트 파일을 matplotlib 폰트 매니저에 "등록" (이게 핵심)
+    font_manager.fontManager.addfont(str(FONT_PATH))
+
+    # 2) 등록된 폰트의 "패밀리 이름"을 얻어서 rcParams에 적용
+    font_name = font_manager.FontProperties(fname=str(FONT_PATH)).get_name()
+    plt.rcParams["font.family"] = font_name
+    plt.rcParams["axes.unicode_minus"] = False
+
+    # (선택) 적용 확인용
+    st.write("Using font:", font_name)
+else:
+    st.error(f"폰트 파일을 찾을 수 없어요: {FONT_PATH}")
+# --------------------------------------------------------
 
 
 # ----------------------------
@@ -962,6 +974,7 @@ for chapter, sections in toc.items():
 # 본문 표시
 # ----------------------------
 toc_function[selected]()   # 선택된 함수 실행
+
 
 
 
