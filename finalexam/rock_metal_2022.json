@@ -1,0 +1,32 @@
+{
+  "i-dle (아이들) - TOMBOY": {
+    "artist": "i-dle (아이들)",
+    "title": "TOMBOY",
+    "songId": "34754292",
+    "genre": "록/메탈"
+  },
+  "BIGBANG (빅뱅) - 봄여름가을겨울 (Still Life)": {
+    "artist": "BIGBANG (빅뱅)",
+    "title": "봄여름가을겨울 (Still Life)",
+    "songId": "34845949",
+    "genre": "록/메탈"
+  },
+  "이무진 - 신호등": {
+    "artist": "이무진",
+    "title": "신호등",
+    "songId": "33480898",
+    "genre": "록/메탈"
+  },
+  "아이유 - strawberry moon": {
+    "artist": "아이유",
+    "title": "strawberry moon",
+    "songId": "34101563",
+    "genre": "록/메탈"
+  },
+  "임영웅 - 무지개 재생": {
+    "artist": "임영웅",
+    "title": "무지개 재생",
+    "songId": "35008525",
+    "genre": "록/메탈"
+  }
+}
