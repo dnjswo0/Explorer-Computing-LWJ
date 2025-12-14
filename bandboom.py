@@ -7,21 +7,32 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import ttest_ind
 import statsmodels.api as sm
-from matplotlib import font_manager
+from matplotlib import font_manager, rc
 import platform
 
-if platform.system() == 'Darwin':  # Mac OS
-    # 시스템 폰트 확인
-    for font in font_manager.findSystemFonts():
-        if "Nanum" in font or "AppleGothic" in font:
-            print(font)
-    # 폰트 지정 (예: AppleGothic)
-    plt.rc('font', family='AppleGothic')
-else:  # Windows
-    font_path = "C:\Windows\Fonts\LG PC.ttf"
-    font_name = font_manager.FontProperties(fname=font_path).get_name()
-    plt.rc('font', family=font_name)
+# if platform.system() == 'Darwin':  # Mac OS
+#     # 시스템 폰트 확인
+#     for font in font_manager.findSystemFonts():
+#         if "Nanum" in font or "AppleGothic" in font:
+#             print(font)
+#     # 폰트 지정 (예: AppleGothic)
+#     plt.rc('font', family='AppleGothic')
+# else:  # Windows
+#     font_path = "C:\Windows\Fonts\LG PC.ttf"
+#     font_name = font_manager.FontProperties(fname=font_path).get_name()
+#     plt.rc('font', family=font_name)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# 폰트 상대경로
+FONT_PATH = os.path.join("fonts", "LG_PC.ttf")
+
+# 폰트 등록
+font_prop = font_manager.FontProperties(fname=FONT_PATH)
+font_name = font_prop.get_name()
+
+# matplotlib 기본 폰트로 설정
+rc("font", family=font_name)
+rc("axes", unicode_minus=False)  # 마이너스 깨짐 방지
 
 
 # ----------------------------
