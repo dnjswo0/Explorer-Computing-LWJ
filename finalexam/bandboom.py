@@ -27,7 +27,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 FONT_PATH = BASE_DIR / "fonts" / "LG_PC.ttf"
 
-st.write("FONT exists?", FONT_PATH.exists(), FONT_PATH)  # 디버깅
+# st.write("FONT exists?", FONT_PATH.exists(), FONT_PATH)  # 디버깅
 
 if FONT_PATH.exists():
     # 1) 폰트 파일을 matplotlib 폰트 매니저에 "등록" (이게 핵심)
@@ -974,6 +974,7 @@ for chapter, sections in toc.items():
 # 본문 표시
 # ----------------------------
 toc_function[selected]()   # 선택된 함수 실행
+
 
 
 
