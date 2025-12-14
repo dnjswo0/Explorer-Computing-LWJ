@@ -3,3 +3,12 @@ pandas
 matplotlib
 seaborn
 openpyxl
+textwrap
+os
+json
+math
+numpy
+scipy
+font_manager
+platform
+statsmodels
