@@ -22,16 +22,14 @@ import platform
 #     font_name = font_manager.FontProperties(fname=font_path).get_name()
 #     plt.rc('font', family=font_name)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = Path(__file__).resolve().parent   # ★ 반드시 Path
 FONT_PATH = BASE_DIR / "fonts" / "LG_PC.ttf"
 
-# 폰트 등록
-font_prop = font_manager.FontProperties(fname=FONT_PATH)
-font_name = font_prop.get_name()
+st.write("FONT exists?", FONT_PATH.exists(), FONT_PATH)  # 디버깅용
 
-# matplotlib 기본 폰트로 설정
-rc("font", family=font_name)
-rc("axes", unicode_minus=False)  # 마이너스 깨짐 방지
+font_prop = font_manager.FontProperties(fname=str(FONT_PATH))
+rc("font", family=font_prop.get_name())
+rc("axes", unicode_minus=False)# 마이너스 깨짐 방지
 
 
 # ----------------------------
@@ -963,6 +961,7 @@ for chapter, sections in toc.items():
 # 본문 표시
 # ----------------------------
 toc_function[selected]()   # 선택된 함수 실행
+
 
 
 
