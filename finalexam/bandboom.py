@@ -23,9 +23,7 @@ import platform
 #     plt.rc('font', family=font_name)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# 폰트 상대경로
-FONT_PATH = os.path.join("fonts", "LG_PC.ttf")
+FONT_PATH = BASE_DIR / "fonts" / "LG_PC.ttf"
 
 # 폰트 등록
 font_prop = font_manager.FontProperties(fname=FONT_PATH)
@@ -965,5 +963,6 @@ for chapter, sections in toc.items():
 # 본문 표시
 # ----------------------------
 toc_function[selected]()   # 선택된 함수 실행
+
 
 
