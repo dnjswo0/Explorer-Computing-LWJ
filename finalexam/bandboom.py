@@ -39,7 +39,7 @@ if FONT_PATH.exists():
     plt.rcParams["axes.unicode_minus"] = False
 
     # (선택) 적용 확인용
-    st.write("Using font:", font_name)
+    # st.write("Using font:", font_name)
 else:
     st.error(f"폰트 파일을 찾을 수 없어요: {FONT_PATH}")
 # --------------------------------------------------------
@@ -974,6 +974,7 @@ for chapter, sections in toc.items():
 # 본문 표시
 # ----------------------------
 toc_function[selected]()   # 선택된 함수 실행
+
 
 
 
